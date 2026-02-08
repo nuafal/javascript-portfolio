@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Dashboard | Portfolio App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="logo-section">
+                <h1 id="userDisplayName">DevPortal</h1>
+            </div>
+            
+            <nav class="sidebar-cards">
+                <div class="nav-card">
+                    <h2>Main</h2>
+                    <h3 class="nav-item">🔠 Activities</h3>
+                    <h3 class="nav-item" onclick="addTask()">📚 Tasks</h3>
+                </div>
+                
+                <div class="nav-card">
+                    <h2>Settings</h2>
+                    <h3 class="nav-item" onclick="openProfilePopup()">👤 Edit Profile</h3>
+                    <h3 class="nav-item" onclick="showCalender()">📅 Calendar</h3>
+                </div>
+
+                <div class="nav-card">
+                    <h2>Projects</h2>
+                    <div id="project-list">
+                        </div>
+                </div>
+                <button onclick="createNewProject()" class="btn-primary">Create New Project</button>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="banner-card">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=1000" alt="Banner" id="displayImage">
+                    <label for="imageInput" class="edit-btn">
+                        🖌️ Edit Banner
+                        <input type="file" id="imageInput" hidden accept="image/*">
+                    </label>
+                </div>
+            </div>
+
+            <section class="active-project-bar">
+                <h1 class="category-title">General</h1>
+                <div class="project-nav">
+                    <h3 class="nav-link active">Active</h3>
+                    <h3 class="nav-link">Project</h3>
+                    <h3 class="nav-link">Tasks</h3>
+                </div>
+            </section>
+
+            <section class="content-grid">
+                <div class="card stats-card">
+                    <div class="header">
+                        <h2>Progress</h2>
+                        <span id="playerLevel">Level 1</span>
+                    </div>
+                    <div class="progress-container">
+                        <p id="expCounter">0 / 100 XP</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="expBar"></div>
+                        </div>
+                        <p>Total Score: <span id="scoreCounter">0</span></p>
+                    </div>
+                </div>
+
+                <div class="card quiz-card">
+                    <h2>Knowledge Challenge</h2>
+                    <div id="quizStart">
+                        <button onclick="startQuiz()" class="btn-primary">Start New Quiz</button>
+                    </div>
+                    <div class="quiz-container" id="quizContainer">
+                        <h3 id="questionText"></h3>
+                        <div class="options-grid" id="optionsContainer"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="profilePopup">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeProfilePopup()">&times;</span>
+            <h2>Edit Profile</h2>
+            <div class="form-group">
+                <label>Display Name:</label>
+                <input type="text" id="popupNameInput" placeholder="Enter name">
+            </div>
+            <div class="form-group">
+                <label>Age:</label>
+                <input type="number" id="popupAgeInput" placeholder="Enter age">
+            </div>
+            <div class="form-group">
+                <label>Country:</label>
+                <select id="popupCountryInput">
+                    <option value="">Select country...</option>
+                    <option value="Malaysia">Malaysia</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                </select>
+            </div>
+            <button onclick="updateProfile()" class="btn-primary">Save Changes</button>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

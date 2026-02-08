@@ -1,0 +1,43 @@
+/* Core Styling from Three.js Editor */
+:root {
+    color-scheme: dark; /* Force dark mode for that tech feel */
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace; /* Use monospaced for ASCII */
+    margin: 0;
+    overflow: hidden;
+    background-color: #111; /* From your dark mode section */
+}
+
+/* Your Custom UI Overlay */
+#ui-overlay {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    border-left: 3px solid #08f; /* Blue accent from the editor's #08f */
+    color: #eee;
+    pointer-events: none;
+}
+
+h1 {
+    font-size: 1.2rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+p {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+/* Ensure the ASCII canvas fills the screen */
+canvas, .ascii-canvas {
+    display: block;
+    width: 100vw !important;
+    height: 100vh !important;
+}
